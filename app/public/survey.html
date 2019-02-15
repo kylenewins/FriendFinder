@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="eng-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Page</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><span class="fa fa-heartbeat"></span>FriendFinder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/survey">Survey</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class = "container">
+        <h1>Survey Questions</h1><hr>
+        <h3>About You</h3>
+        <div class="input-group input-group-default mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                </div>
+                <input type="text" class="form-control" id= "name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div>
+        <div class="input-group input-group-default mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Link to Image</span>
+                </div>
+                <input type="text" class="form-control" id= "image" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        </div></hr>
+
+        
+        <form>
+            <h3>Question One</h3>
+            <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+            <select name="q1" id="q1">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Two</h3>
+            <p>Generally speaking, you rely more on your experience than your imagination.</p>
+            <select name="q2" id="q2">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Three</h3>
+            <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+            <select name="q3" id="q3">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Four</h3>
+            <p>You rarely do something just out of sheer curiosity.</p>
+            <select name="q4" id ="q4">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Five</h3>
+            <p>People can rarely upset you.</p>
+            <select name="q5" id ="q4=5">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Six</h3>
+            <p>It is often difficult for you to relate to other people’s feelings.</p>
+            <select name="q6" id ="q6">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+
+            <h3>Question Seven</h3>
+            <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+            <select name="q7" id="q7">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Eight</h3>
+            <p>You rarely get carried away by fantasies and ideas.</p>
+            <select name="q8" id="q8">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Nine</h3>
+            <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+            <select name="q9" id="q9">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+
+            <h3>Question Ten</h3>
+            <p>You feel more energetic after spending time with a group of people.</p>
+            <select name="q10" id="q10">
+                <option value="" disabled selected>Select your option</option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>
+            </select><hr><br>
+            
+            <button type="submit" class="btn btn-primary btn-lg btn-block submit" id="subButton">Submit</button>
+            <br>
+        </form> <br>
+        <a href="/api/friends">Friends Data</a> || <a href = "https://github.com/kylenewins/friendfinder">GitHub Repo</a>
+
+    </div><!--container end-->
+
+    <script type= "text/javascript">
+    $("#subButton").on("click", function(event){
+        event.preventDefault()
+
+        var newFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#image").val().trim(),
+            scores: [
+                parseInt($("#q1").val()),
+                parseInt($("#q2").val()),
+                parseInt($("#q3").val()),
+                parseInt($("#q4").val()),
+                parseInt($("#q5").val()),
+                parseInt($("#q6").val()),
+                parseInt($("#q7").val()),
+                parseInt($("#q8").val()),
+                parseInt($("#q9").val()),
+                parseInt($("#q10").val())
+            ]
+        }
+        console.log("newfriend Detected" + newFriend)
+        
+    $.post("/api/friends", newFriend,
+      function(data) {
+          alert("Matches Found")
+          
+
+      });
+
+    })//sub button end
+    </script>
+
+</body>
+</html>
