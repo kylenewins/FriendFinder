@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <title>Survey Page</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <body>
@@ -25,6 +24,27 @@
             </ul>
         </div>
     </nav>
+
+    <!-- <button type="button" id= "modalTrigger" class="btn btn-info btn-lg" data-toggle="modal" data-target="#results">Open Modal</button> -->
+
+    <!-- <div id="results" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+          
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+          
+            </div>
+    </div> -->
 
     <div class = "container">
         <h1>Survey Questions</h1><hr>
@@ -90,7 +110,7 @@
 
             <h3>Question Five</h3>
             <p>People can rarely upset you.</p>
-            <select name="q5" id ="q4=5">
+            <select name="q5" id ="q5">
                 <option value="" disabled selected>Select your option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -155,14 +175,15 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><hr><br>
             
-            <button type="submit" class="btn btn-primary btn-lg btn-block submit" id="subButton">Submit</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block submit" id="subButton" data-toggle="modal" data-target="#myModal">Submit</button>
             <br>
         </form> <br>
+
         <a href="/api/friends">Friends Data</a> || <a href = "https://github.com/kylenewins/friendfinder">GitHub Repo</a>
 
-    </div><!--container end-->
+</div><!--container end-->
 
-    <script type= "text/javascript">
+<script type= "text/javascript">
     $("#subButton").on("click", function(event){
         event.preventDefault()
 
@@ -170,7 +191,7 @@
             name: $("#name").val().trim(),
             photo: $("#image").val().trim(),
             scores: [
-                parseInt($("#q1").val()),
+                parseFloat($("#q1").val()),
                 parseInt($("#q2").val()),
                 parseInt($("#q3").val()),
                 parseInt($("#q4").val()),
@@ -186,13 +207,14 @@
         
     $.post("/api/friends", newFriend,
       function(data) {
-          alert("Matches Found")
           
 
       });
 
+    
+
     })//sub button end
-    </script>
+</script>
 
 </body>
 </html>
