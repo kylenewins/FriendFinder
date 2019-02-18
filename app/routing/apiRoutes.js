@@ -1,5 +1,6 @@
 var friendsData = require("../data/friends")
 
+
 module.exports = function(app){
     app.get("/api/friends", function(req, res) {
         res.json(friendsData);
@@ -70,6 +71,7 @@ module.exports = function(app){
       var matchDex = difArray.indexOf(matchNum)
 
       console.log("index of closest match (from difArray i.e othersArray): " + matchDex)
+      
 
     });
     

@@ -188,6 +188,7 @@
 </div><!--container end-->
 
 <script type= "text/javascript">
+
     $("#subButton").on("click", function(event){
         event.preventDefault()        
 
@@ -208,11 +209,11 @@
             ]
         }
         console.log("newfriend Detected" + newFriend)
-        
+                
     $.post("/api/friends", newFriend,
       function(data) {
-          $("#modalText").text(friendsData[grab.matchDex].name)
-
+          $("#modalText").text("Your Match is: " + matchDex)
+        
       });
 
     
