@@ -40,10 +40,11 @@
                 </div>
                 <div class="modal-body">
                   <p><span id="modalText"></span></p>
-                  <span id = "modalImg"></span>
+                  <img id = "modalImg" width="450" src="">
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <a class="btn btn-default" href="/survey" role="button">Retake Survey</a>
                 </div>
               </div>
           
@@ -180,6 +181,8 @@
             </select><hr><br>
             
             <button type="submit" class="btn btn-primary btn-lg btn-block submit" id="subButton" data-toggle="modal" data-target="#results">Submit</button>
+            <a class="btn btn-dark btn-block" href="/survey" role="button">Retake Survey</a>
+
             <br>
         </form> <br>
 
@@ -212,7 +215,8 @@
                 
     $.post("/api/friends", newFriend,
       function(data) {
-          $("#modalText").text("Your Match is: " + matchDex)
+          $('#modalText').html(data.matchName);
+		    	$("#modalImg").attr("src", data.matchImage);
         
       });
 

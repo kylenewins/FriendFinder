@@ -6,73 +6,57 @@ module.exports = function(app){
         res.json(friendsData);
       });
 
-    app.post("/api/friends", function(req, res) {
-      //two empty arrays, one for userScores and one for ALL of the other scores (array of arrays)
-      var userScores = []
-      var otherScores = []
+    //my previous post method was much too long. I thought about how to rework/clean it up
+    //and it made the functionality a lot easier to understand
+    app.post('/api/friends', function(req, res) {
+      //grabs the whole request from survey.html
+      var userInput = req.body;
+  
+      //grabs the user's responses as an array
+      var userResponses = userInput.scores;
 
-      //loops through friendsData (before new one is pushed) and pushes the scores into otherScores array
-      for(var i=0; i <friendsData.length; i ++){
-        otherScores.push(friendsData[i].scores)
-      }
-      console.log(otherScores)
-
-      //pushes the form data into friendsData as JSON
-      friendsData.push(req.body);
-      res.json(true);
+      console.log(userResponses)
       
-      //pushes just the scores into an array
-      for(var i = 0; i < req.body.scores.length; i++){
-        userScores.push(parseFloat(req.body.scores[i]))
+      //sets up empty string variables to hold future data
+      var matchName = ""
+      var matchImage = ""
+      //sets the totalDifference to a large number so i can calculate the difference between
+      //other friends from the friendsData array
+      var totalDifference = 10000; 
+  
+      //cycles through the data held at ../data/friends
+      for (var i = 0; i < friendsData.length; i++) {
+  
+        //sets up the diff variable
+        var diff = 0;
+        //second loop to go through the user responses
+        for (var j = 0; j < userResponses.length; j++) {
+          //goes through ALL of the friendsData entries and subtracts the user scores from
+          //the scores of each of the friends data
+          diff += Math.abs(friendsData[i].scores[j] - userResponses[j]);
+        }
+
+        console.log("diff from friendsData[" + i + "] " + diff)
+        //if the diff number is less than 10000....
+        if (diff < totalDifference) {
+          //changes the total difference to the actual difference
+          totalDifference = diff;
+          //assigns the strings to the empty variables
+          matchName = friendsData[i].name;
+          matchImage = friendsData[i].photo;
+        }
       }
 
-      console.log(userScores)
-
-      //logic to calculate the individual differences question by question and add them up
-      var difArray = []
-
-      for(var i = 0; i< otherScores.length; i ++){
-        var firstDif = (userScores[0] - otherScores[i][0])
-
-        var secondDif = (userScores[1] - otherScores[i][1])
-
-        var thirdDif = (userScores[2] - otherScores[i][2])
-
-        var fourthDif = (userScores[3] - otherScores[i][3])
-
-        var fifthDif = (userScores[4] - otherScores[i][4])
-
-        var sixthDif = (userScores[5] - otherScores[i][5])
-
-        var seventhDif =(userScores[6] - otherScores[i][6])
-
-        var eighthDif = (userScores[7] - otherScores[i][7])
-
-        var ninthDif = (userScores[8] - otherScores[i][8])
-
-        var tenthDif = (userScores[9] - otherScores[i][9])
-
-        var totalDif = (Math.abs(firstDif) + Math.abs(secondDif) + Math.abs(thirdDif) + Math.abs(fourthDif) + Math.abs(fifthDif) + Math.abs(sixthDif) + Math.abs(seventhDif) + Math.abs(eighthDif)+ Math.abs(ninthDif) + Math.abs(tenthDif))
-        
-        difArray.push(totalDif)
-      }
-
-      console.log(difArray)
-
-      //math function to find the lowest item in any array
-      Array.min = function( array ){
-        return Math.min.apply( Math, array );
-      };
-
-      //finds the lowest number in the difArray
-      var matchNum = Array.min(difArray);
-
-      //returns the index of the lowest number in the difArray
-      var matchDex = difArray.indexOf(matchNum)
-
-      console.log("index of closest match (from difArray i.e othersArray): " + matchDex)
+      console.log(matchName)
+      console.log(matchImage)
       
-
+      //pushes the req.body to the friendsData array
+      friendsData.push(userInput);
+      
+      //sends out these variables to be used by other pages
+      res.json({status: 'OK',
+       matchName: matchName, 
+       matchImage: matchImage});
     });
     
 }
